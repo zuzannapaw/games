@@ -62,3 +62,11 @@ body {
   margin-top: -15%;
   width: 100%;
 }
+
+.start-again {
+  width: 150px;
+  height: 30px;
+  border: 2px solid black;
+  cursor:pointer;
+  margin-top: 20px;
+}

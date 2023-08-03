@@ -1,5 +1,6 @@
 const gameBoard = document.querySelector("#gameboard");
 const infoDisplay = document.querySelector("#info");
+const startAgainButton = document.querySelector(".start-again");
 
 const startsCells = ["", "", "", "", "", "", "", "", ""];
 
@@ -58,6 +59,17 @@ const addGo = (e) => {
   checkScore();
 };
 
+const startAgain = () => {
+  const allSquares = document.querySelectorAll(".square");
+  console.log(allSquares);
+  allSquares.forEach((square) => {
+    square.firstChild && square.removeChild(square.firstChild);
+    square.addEventListener("click", addGo);
+  });
+  go = "circle";
+  infoDisplay.textContent = "Circle goes first";
+};
+
 const createBoard = () => {
   startsCells.forEach((_cell, index) => {
     const cellElement = document.createElement("div");
@@ -66,6 +78,7 @@ const createBoard = () => {
     cellElement.addEventListener("click", addGo);
     gameBoard.append(cellElement);
   });
+  startAgainButton.addEventListener("click", startAgain);
 };
 
 createBoard();
