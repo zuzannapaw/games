@@ -15,20 +15,6 @@ let circleAllWins = 0;
 
 infoDisplay.textContent = "Circle goes first";
 
-const clearScores = () => {
-  const allSquares = document.querySelectorAll(".square");
-  crossAllWins = 0;
-  circleAllWins = 0;
-  infoDisplay.textContent = "Circle goes first";
-  allSquares.forEach((square) => {
-    square.firstChild && square.removeChild(square.firstChild);
-    square.addEventListener("click", addGo);
-  });
-  go = "circle";
-
-  setUpScores();
-};
-
 const setUpScores = (circleWinsUpdate, crossWinsUpdate) => {
   if (circleWinsUpdate || crossWinsUpdate) {
     circlePlayer.innerText = `Circle All Wins: ${
@@ -41,6 +27,20 @@ const setUpScores = (circleWinsUpdate, crossWinsUpdate) => {
 
   circlePlayer.innerText = `Circle wins: ${circleAllWins}`;
   crossPlayer.innerText = `Cross wins: ${crossAllWins}`;
+};
+
+const clearScores = () => {
+  const allSquares = document.querySelectorAll(".square");
+  crossAllWins = 0;
+  circleAllWins = 0;
+  infoDisplay.textContent = "Circle goes first";
+  allSquares.forEach((square) => {
+    square.firstChild && square.removeChild(square.firstChild);
+    square.addEventListener("click", addGo);
+  });
+  go = "circle";
+
+  setUpScores();
 };
 
 const checkScore = () => {
