@@ -1,12 +1,47 @@
 const gameBoard = document.querySelector("#gameboard");
 const infoDisplay = document.querySelector("#info");
 const startAgainButton = document.querySelector(".start-again");
+const clearScoresButton = document.querySelector(".clear-scores");
+
+const circlePlayer = document.querySelector("#player-circle");
+const crossPlayer = document.querySelector("#player-cross");
 
 const startsCells = ["", "", "", "", "", "", "", "", ""];
 
 let go = "circle";
 
+let crossAllWins = 0;
+let circleAllWins = 0;
+
 infoDisplay.textContent = "Circle goes first";
+
+const clearScores = () => {
+  const allSquares = document.querySelectorAll(".square");
+  crossAllWins = 0;
+  circleAllWins = 0;
+  infoDisplay.textContent = "Circle goes first";
+  allSquares.forEach((square) => {
+    square.firstChild && square.removeChild(square.firstChild);
+    square.addEventListener("click", addGo);
+  });
+  go = "circle";
+
+  setUpScores();
+};
+
+const setUpScores = (circleWinsUpdate, crossWinsUpdate) => {
+  if (circleWinsUpdate || crossWinsUpdate) {
+    circlePlayer.innerText = `Circle All Wins: ${
+      circleWinsUpdate ? circleWinsUpdate : circleAllWins
+    }`;
+    crossPlayer.innerText = `Cross All Wins: ${
+      crossWinsUpdate ? crossWinsUpdate : crossAllWins
+    }`;
+  }
+
+  circlePlayer.innerText = `Circle wins: ${circleAllWins}`;
+  crossPlayer.innerText = `Cross wins: ${crossAllWins}`;
+};
 
 const checkScore = () => {
   const allSquares = document.querySelectorAll(".square");
@@ -27,6 +62,7 @@ const checkScore = () => {
     );
     if (circleWins) {
       infoDisplay.textContent = "Circle Wins!";
+      setUpScores(circleAllWins++);
       allSquares.forEach((square) =>
         square.replaceWith(square.cloneNode(true))
       );
@@ -40,6 +76,7 @@ const checkScore = () => {
     );
     if (crossWins) {
       infoDisplay.textContent = "Cross Wins!";
+      setUpScores(crossAllWins++);
       allSquares.forEach((square) =>
         square.replaceWith(square.cloneNode(true))
       );
@@ -79,6 +116,8 @@ const createBoard = () => {
     gameBoard.append(cellElement);
   });
   startAgainButton.addEventListener("click", startAgain);
+  clearScoresButton.addEventListener("click", clearScores);
+  setUpScores();
 };
 
 createBoard();
