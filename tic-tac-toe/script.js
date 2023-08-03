@@ -98,7 +98,6 @@ const addGo = (e) => {
 
 const startAgain = () => {
   const allSquares = document.querySelectorAll(".square");
-  console.log(allSquares);
   allSquares.forEach((square) => {
     square.firstChild && square.removeChild(square.firstChild);
     square.addEventListener("click", addGo);
