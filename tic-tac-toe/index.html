@@ -3,10 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <title>Tic Tac Toe JavaScript</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Tektur:wght@400;500&display=swap");
+    </style>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="gameboard-info-wrapper">
+      <p id="game-title">Tic Tac Toe</p>
       <div id="gameboard"></div>
       <p id="info"></p>
       <button class="start-again">Start Again</button>
@@ -15,7 +19,7 @@
     <div class="players-wrapper">
       <p id="player-circle"></p>
       <p id="player-cross"></p>
-      
+
       <button class="clear-scores">Clear All Scores</button>
     </div>
     <script src="script.js"></script>

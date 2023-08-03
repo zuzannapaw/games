@@ -5,46 +5,52 @@ body {
   justify-content: space-around;
   align-items: center;
   height: 100vh;
+  background-color: black;
+  font-family: "Press Start 2P", sans-serif;
 }
 
-.gameboard-info-wrapper{
-display:flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
+#game-title {
+  margin-bottom: 45px;
+  font-size: 55px;
+  color: white;
+}
 
+.gameboard-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #gameboard {
   display: flex;
   flex-wrap: wrap;
-  width: 300px;
-  height: 300px;
-  border: solid 1px black;
+  width: 600px;
+  height: 600px;
+  border: solid 1px white;
 }
 
 .square {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 100px;
-  background-color: white;
-  border: solid 2px black;
+  width: 200px;
+  height: 200px;
+  border: solid 2px white;
   box-sizing: border-box;
 }
 
 .circle {
-  height: 90px;
-  width: 90px;
+  height: 110px;
+  width: 110px;
   border-radius: 50%;
-  border: 15px solid blue;
+  border: 15px solid #2196f3;
   box-sizing: border-box;
 }
 
 .cross {
-  height: 90px;
-  width: 90px;
+  height: 110px;
+  width: 110px;
   position: relative;
   transform: rotate(45deg);
 }
@@ -53,27 +59,55 @@ align-items: center;
 .cross:after {
   content: "";
   position: absolute;
-  background-color: red;
+  background-color: #00ab66;
 }
 
 .cross:before {
   left: 50%;
-  width: 30%;
+  width: 25%;
   margin-left: -15%;
   height: 100%;
 }
 
 .cross:after {
   top: 50%;
-  height: 30%;
+  height: 25%;
   margin-top: -15%;
   width: 100%;
 }
 
+#info {
+  font-size: 25px;
+  color: white;
+}
+
 .start-again {
-  width: 150px;
-  height: 30px;
-  border: 2px solid black;
-  cursor:pointer;
-  margin-top: 20px;
+  width: 180px;
+  height: 35px;
+  background-color: #6f0023;
+  cursor: pointer;
+  margin-top: 10px;
+  font-family: inherit;
+  color: white;
+  border: none;
+}
+
+.players-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 30px;
+  color: white;
+}
+
+.clear-scores {
+  height: 50px;
+  width: 240px;
+  margin-top: 15px;
+  background-color: #8d0039;
+  font-family: inherit;
+  color: inherit;
+  border: none;
+  cursor: pointer;
 }
