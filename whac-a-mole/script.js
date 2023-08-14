@@ -34,7 +34,7 @@ const moveMole = () => {
   movingMole = setInterval(randomSquare, 500);
 };
 
-moveMole();
+moveMole(); //into button
 
 function countDown() {
   time--;
