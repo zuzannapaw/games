@@ -114,7 +114,7 @@ export const HangManDrawing = ({ numberOfGuesses }: HangmanDrawingProps) => {
       ></div>
       <div
         style={{
-          height: "400px",
+          height: "350px",
           width: "10px",
           background: "black",
           marginLeft: "120px ",

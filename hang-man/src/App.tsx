@@ -3,6 +3,7 @@ import words from "./word-list.json";
 import { HangManDrawing } from "./HangManDrawing";
 import { HangManWord } from "./HangManWord";
 import { Keyboard } from "./Keyboard";
+import "./App.module.css";
 
 const getWord = () => {
   return words[Math.floor(Math.random() * words.length)];
@@ -15,6 +16,10 @@ function App() {
 
   const incorrectLetters = guessedLetters.filter(
     (letter) => !wordToGuess.includes(letter)
+  );
+
+  const correctLetters = guessedLetters.filter((letter) =>
+    wordToGuess.includes(letter)
   );
 
   const isLoser = incorrectLetters.length >= 6;
@@ -66,10 +71,11 @@ function App() {
   return (
     <div
       style={{
+        height: "100vh",
         maxWidth: "800px",
         display: "flex",
         flexDirection: "column",
-        gap: "2rem",
+        justifyContent: "space-around",
         margin: "0 auto",
         alignItems: "center",
       }}
@@ -87,9 +93,7 @@ function App() {
       <div style={{ alignSelf: "stretch" }}>
         <Keyboard
           disabled={isWinner || isLoser}
-          activeLetters={guessedLetters.filter((letter) =>
-            wordToGuess.includes(letter)
-          )}
+          activeLetters={correctLetters}
           inactiveLetters={incorrectLetters}
           addGuessedLetter={addGuessedLetter}
         />

@@ -14,7 +14,7 @@ export const HangManWord = ({
       style={{
         display: "flex",
         gap: ".25em",
-        fontSize: "6rem",
+        fontSize: "4.5rem",
         fontWeight: "bold",
         textTransform: "uppercase",
       }}
