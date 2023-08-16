@@ -75,12 +75,14 @@ function App() {
         maxWidth: "800px",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-around",
+        justifyContent: "space-evenly",
         margin: "0 auto",
         alignItems: "center",
       }}
     >
-      <div style={{ fontSize: "2rem", textAlign: "center" }}>
+      <div
+        style={{ fontSize: "1.5rem", textAlign: "center", marginTop: "-25px" }}
+      >
         {isWinner && "Winner! - Refresh to try again"}{" "}
         {isLoser && "Nice Try - Refresh to try again"}
       </div>
